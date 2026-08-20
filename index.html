@@ -15,11 +15,11 @@
         }
 
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-       
         .image-container {
             position: relative;
             width: 100%;
@@ -56,10 +56,12 @@
         
         .image-container h1 {
             color: #ffffff;
+            margin: 3px 50px;
             font-weight: 700;
             font-size: clamp(1.8rem, 4vw, 3rem);
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
             letter-spacing: 1.5px;
+            margin: 0;
             animation: fadeIn 1s ease-out forwards;
         }
 
@@ -75,44 +77,38 @@
         }
 
         .container {
-            max-width: 900px;
-            margin: -50px auto 50px auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
+            width: 100%;
+            padding: 20px;
         }
 
         .form-wrapper {
             background: #ffffff;
-            padding: 40px;
+            padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .main-title {
-            text-align: center; 
-            color: #b30000;
-            margin-bottom: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .subtitle {
-            text-align: center;
-            color: #666;
+            color: #666 !important;
             font-size: 0.95rem;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        h2, h3 {
+        h2 {
             color: #b30000;
-            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #b30000;
         }
 
         fieldset {
             border: 1px solid #e0e0e0;
             border-radius: 6px;
-            padding: 25px;
-            margin-bottom: 25px;
-            background: #fff;
+            padding: 40px;
+            margin-bottom: 20px;
         }
 
         .form-row {
@@ -132,6 +128,28 @@
             margin-bottom: 0;
         }
 
+        .choice {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .choice select {
+            height: 42px;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            color: #b30000;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        .choice option {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
         label {
             font-size: 0.85rem;
             font-weight: 600;
@@ -144,14 +162,14 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 0.95rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: border-color 0.2s;
             width: 100%;
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: #b30000;
-            box-shadow: 0 0 4px rgba(179, 0, 0, 0.25);
+            border-color: #007bff;
+            box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
         }
 
         textarea {
@@ -160,13 +178,13 @@
 
         .button-group {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-top: 10px;
         }
 
         .btn {
             flex: 1;
-            padding: 14px;
+            padding: 12px;
             border: none;
             border-radius: 4px;
             font-size: 1rem;
@@ -181,29 +199,29 @@
         }
 
         .btn-submit:hover {
-            background-color: #990000;
+            background-color: #f50000;
         }
 
         .btn-reset {
             background-color: #e0e0e0;
-            color: #333;
+            color: #b30000;
         }
 
         .btn-reset:hover {
             background-color: #d0d0d0;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
             .form-row {
                 flex-direction: column;
-                gap: 0;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="image-container">
+ 
+<section>
+    <div class="image-container" style="background-position: center;background-size: cover;">
         <img src="pexels-safari-consoler-3290243-20240506.jpg" alt="Background" id="parallaxImage">
         <div class="overlay-text">
             <h1>Start your journey with us</h1>
@@ -212,29 +230,31 @@
 
     <div class="container">
         <div class="form-wrapper">
-            <h1 class="main-title">Application Form</h1>
-            <p class="subtitle">Please fill in all sections accurately to complete your application.</p>
-            
+            <h1 style="text-align: center; color: #888888;">Application form</h1><br>
+
+            <p class="subtitle">Please fill in the form below to apply.</p>
             <form>
+
+                <!-- Course Selection Section -->
                 <fieldset>
-                    <h2>Course Selection</h2>
+                    <h2>Course Selection</h2><br>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="course">Select Course *</label>
-                            <select id="course" name="course" required>
-                                <option value="">-- Choose Course --</option>
-                                <option value="cs">Bachelor of Computer Science</option>
-                                <option value="ba">Bachelor of Business Administration</option>
-                                <option value="eng">Bachelor of Engineering</option>
+                            <label for="selectCourse">Select Course *</label>
+                            <select id="selectCourse" name="selectCourse" required>
+                                <option value=""></option>
+                                <option value="computer-science">Computer Science</option>
+                                <option value="business-admin">Business Administration</option>
+                                <option value="engineering">Engineering</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="studyMode">Study Mode *</label>
                             <select id="studyMode" name="studyMode" required>
-                                <option value="">-- Choose Mode --</option>
+                                <option value=""></option>
                                 <option value="full-time">Full-Time</option>
                                 <option value="part-time">Part-Time</option>
-                                <option value="online">Online / Distance</option>
+                                <option value="online">Online</option>
                             </select>
                         </div>
                     </div>
@@ -242,16 +262,15 @@
                         <div class="form-group">
                             <label for="entryLevel">Entry Level *</label>
                             <select id="entryLevel" name="entryLevel" required>
-                                <option value="">-- Choose Level --</option>
-                                <option value="1">1st Year / Undergraduate</option>
-                                <option value="2">2nd Year Transfer</option>
-                                <option value="postgrad">Postgraduate</option>
+                                <option value=""></option>
+                                <option value="undergraduate">Undergraduate</option>
+                                <option value="postgraduate">Postgraduate</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="academicYear">Academic Year *</label>
                             <select id="academicYear" name="academicYear" required>
-                                <option value="">-- Choose Year --</option>
+                                <option value=""></option>
                                 <option value="2026">2026</option>
                                 <option value="2027">2027</option>
                             </select>
@@ -259,18 +278,17 @@
                     </div>
                 </fieldset>
 
-            
+                <!-- Personal Details Section -->
                 <fieldset>
-                    <h2>Personal Details</h2>
+                    <h2>Personal Details</h2><br>
                     <div class="form-row">
-                        <div class="form-group" style="flex: 0.5;">
+                        <div class="choice">
                             <label for="title">Title *</label>
-                            <select id="title" name="title" required>
-                                <option value="">Select</option>
-                                <option value="Mr">Mr</option>
-                                <option value="Mrs">Mrs</option>
-                                <option value="Ms">Ms</option>
-                                <option value="Dr">Dr</option>
+                            <select id="title" name="title">
+                                <option></option>
+                                <option>Mr</option>
+                                <option>Mrs</option>
+                                <option>Ms</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -284,97 +302,86 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email">Email Address *</label>
+                            <label for="email">Email *</label>
                             <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+1234567890" required>
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone">
                         </div>
                     </div>
                 </fieldset>
                 
-          
+                <!-- Residential Details Section -->
                 <fieldset>
-                    <h2>Residential Details</h2>
+                    <h3>Residential Details</h3><br>
                     <div class="form-group">
-                        <label for="address">Street Address *</label>
-                        <textarea id="address" name="address" rows="2" placeholder="Enter your full street address" required></textarea>
+                        <label for="address">Address *</label>
+                        <textarea id="address" name="address" rows="3" placeholder="Enter your full address"></textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="city">City / Town *</label>
-                            <input type="text" id="city" name="city" required>
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city">
                         </div>
                         <div class="form-group">
                             <label for="postalCode">Postal Code *</label>
-                            <input type="text" id="postalCode" name="postalCode" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="country">Country *</label>
-                            <input type="text" id="country" name="country" required>
+                            <input type="text" id="postalCode" name="postalCode">
                         </div>
                     </div>
                 </fieldset>
 
-               
+                <!-- Educational Background Section -->
                 <fieldset>
-                    <h2>Educational Background</h2>
+                    <h3>Educational Background</h3><br>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="prevInstitution">Previous School / Institution *</label>
-                            <input type="text" id="prevInstitution" name="prevInstitution" required>
+                            <label for="highestQual">Highest Qualification *</label>
+                            <input type="text" id="highestQual" name="highestQual">
                         </div>
                         <div class="form-group">
-                            <label for="qualification">Highest Qualification Obtained *</label>
-                            <input type="text" id="qualification" name="qualification" placeholder="e.g. High School Diploma, Bachelor's" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="gradYear">Year of Graduation / Completion *</label>
-                            <input type="number" id="gradYear" name="gradYear" min="1950" max="2026" required>
+                            <label for="institution">Institution Name *</label>
+                            <input type="text" id="institution" name="institution">
                         </div>
                     </div>
                 </fieldset>
 
-       
+                <!-- Finances Section -->
                 <fieldset>
-                    <h2>Finances</h2>
+                    <h3>Finances</h3><br>
                     <div class="form-group">
-                        <label for="fundingSource">How will you fund your studies? *</label>
-                        <select id="fundingSource" name="fundingSource" required>
-                            <option value="">-- Select Funding Source --</option>
-                            <option value="self">Self-Funded / Family</option>
+                        <label for="fundingSource">Funding Source *</label>
+                        <select id="fundingSource" name="fundingSource">
+                            <option value=""></option>
+                            <option value="self">Self / Family</option>
                             <option value="loan">Student Loan</option>
-                            <option value="scholarship">Scholarship / Bursary</option>
-                            <option value="employer">Employer Sponsored</option>
+                            <option value="scholarship">Scholarship</option>
                         </select>
                     </div>
                 </fieldset>
 
-            
+                <!-- Document Uploads Section -->
                 <fieldset>
-                    <h2>Document Uploads</h2>
+                    <h3>Document Uploads</h3><br>
                     <div class="form-group">
-                        <label for="idDocument">Upload ID / Passport Copy *</label>
-                        <input type="file" id="idDocument" name="idDocument" accept=".pdf,.jpg,.png" required>
+                        <label for="idDoc">ID / Passport Document *</label>
+                        <input type="file" id="idDoc" name="idDoc">
                     </div>
                     <div class="form-group">
-                        <label for="transcripts">Upload Academic Transcripts / Certificates *</label>
-                        <input type="file" id="transcripts" name="transcripts" accept=".pdf,.jpg,.png" required>
+                        <label for="certificates">Certificates / Transcripts *</label>
+                        <input type="file" id="certificates" name="certificates">
                     </div>
                 </fieldset>
-
+                
                 <div class="button-group">
-                    <button type="submit" class="btn btn-submit"><i class="fas fa-paper-plane"></i> Submit Application</button>
-                    <button type="reset" class="btn btn-reset">Clear Form</button>
+                    <button type="submit" class="btn btn-submit"><i class="fas fa-paper-plane"></i> Submit</button>
+                    <button type="reset" class="btn btn-reset">Reset</button>
                 </div>
             </form>
         </div>
     </div>
+</section>
 
- 
     <script>
         let ticking = false;
 
@@ -384,8 +391,7 @@
                     const scrollPosition = window.pageYOffset;
                     const bgImage = document.getElementById('parallaxImage');
                     
-                  
-                    bgImage.style.transform = 'translateY(' + (scrollPosition * 0.4) + 'px)';
+                    bgImage.style.transform = 'translateY(' + (scrollPosition * 0.35) + 'px)';
                     ticking = false;
                 });
                 ticking = true;
